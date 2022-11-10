@@ -1,0 +1,26 @@
+/* .app 
+{@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap'); */
+
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+  /* base styles */
+  * {
+    margin: 0;
+    font-family: "Quicksand";
+    color: #333;
+  }
+  .navbar {
+    max-width: 600px;
+    margin: 0 auto;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .navbar button:hover {
+    color:red;
+    background-color: white;
+    border: 1px solid red;
+  }
+  .content {
+    max-width: 600px;
+    margin: 40px auto;
+  }
+  
