@@ -25,15 +25,20 @@ const Home = () => {
 //   console.log(blogs)
 
   return (
+    // <div className="home">
+    //   {/* {blogs.map((blog) => (
+    //     <div className="blog-preview" key={blog.id}>
+    //       <h2>{blog.title}</h2>
+    //       <p>Written by: {blog.author}</p>
+    //       <p>{blog.body}</p>
+    //     </div>
+    //   ))} */}
+    //   <BlogList blogs_send={blogs} title = "Blogs List"/>
+    // </div>
+
     <div className="home">
-      {/* {blogs.map((blog) => (
-        <div className="blog-preview" key={blog.id}>
-          <h2>{blog.title}</h2>
-          <p>Written by: {blog.author}</p>
-          <p>{blog.body}</p>
-        </div>
-      ))} */}
-      <BlogList blogs_send={blogs} title = "Blogs List"/>
+      <BlogList blogs_send={blogs} title="Blog List"/>
+      <BlogList blogs_send={blogs.filter((blog)=> blog.author === 'lily')} title="Lily's Blogs"/>
     </div>
   );
 };
