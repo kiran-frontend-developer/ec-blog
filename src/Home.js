@@ -22,23 +22,46 @@ const Home = () => {
       author: "Jenny",
     },
   ]);
-//   console.log(blogs)
+  //   console.log(blogs)
+
+  const deleteBlog = (id) => {
+    // delete thn save in variable then set blogs
+    // let blogsList = blogs.filter((blog) => blog.id !== id);
+    // setBlogs(blogsList)
+
+    //directly dekete and set blogs
+    setBlogs(blogs.filter((blog) => blog.id !== id))
+  };
 
   return (
-    // <div className="home">
-    //   {/* {blogs.map((blog) => (
-    //     <div className="blog-preview" key={blog.id}>
-    //       <h2>{blog.title}</h2>
-    //       <p>Written by: {blog.author}</p>
-    //       <p>{blog.body}</p>
-    //     </div>
-    //   ))} */}
-    //   <BlogList blogs_send={blogs} title = "Blogs List"/>
-    // </div>
-
     <div className="home">
-      <BlogList blogs_send={blogs} title="Blog List"/>
-      <BlogList blogs_send={blogs.filter((blog)=> blog.author === 'lily')} title="Lily's Blogs"/>
+      {/* {blogs.map((blog) => (
+        <div className="blog-preview" key={blog.id}>
+          <h2>{blog.title}</h2>
+          <p>Written by: {blog.author}</p>
+          <p>{blog.body}</p>
+        </div>
+      ))} */}
+      <BlogList
+        blogs_send={blogs}
+        title="Blogs List"
+        handleDelete={deleteBlog}
+      />
+      <BlogList
+        blogs_send={blogs.filter((blog) => blog.author === "zinnia")}
+        title="Zinnia's Blogs"
+        handleDelete={deleteBlog}
+      />
+      {/*  arithmetic operators 
+                   + - * / %
+       */}
+      {/* logical operators   reult boolean / bool   true, false 
+                   > >=   < <=  ==  value  
+                    example:  1=='1'  true
+
+                   >==    <==   ===  vlue with type , strict check 
+                    example: 1 === '1' false 
+       */}
     </div>
   );
 };

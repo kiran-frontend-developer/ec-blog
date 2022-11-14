@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import React from "react";
 
 // const BlogList = (props) => {
-const BlogList = ({blogs_send, title}) => {
+const BlogList = ({ blogs_send, title, handleDelete }) => {
   /* 1st method : static data
   //   const [blogs, setBlogs] = useState([
   //     {
@@ -35,6 +36,13 @@ const BlogList = ({blogs_send, title}) => {
 
   */
 
+  //arrow funtion , isko humm apny button main use kr rhy hn onlick main chk kro
+  // const showMessage = (e) => {
+  //   // console.log(e);
+  //   console.log("id: " + e);
+  //   alert("hi");
+  // };
+
   return (
     <div className="blog-list">
       {/* <h2>{blogs_title}</h2> */}
@@ -45,6 +53,20 @@ const BlogList = ({blogs_send, title}) => {
           <h2>{blog.title}</h2>
           <p>Written by: {blog.author}</p>
           <p>{blog.body}</p>
+          <button
+            onClick={() =>
+              // {
+              // console.log("id: " + blog.id);
+              // alert("hi");
+              // }
+              // showMessage(blog.id)
+              handleDelete(blog.id)
+            }
+            className="btn btn-outline-danger d-grid gap-2 col-6 mx-auto"
+            type="button"
+          >
+            Delete Blog
+          </button>
         </div>
       ))}
     </div>
