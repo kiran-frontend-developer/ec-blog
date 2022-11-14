@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
+  //hooks start
   const [blogs, setBlogs] = useState([
     {
       id: 1,
@@ -24,14 +25,26 @@ const Home = () => {
   ]);
   //   console.log(blogs)
 
+  //useState for useEffect dependency
+  const [name, setName] = useState("Initial Name");
+
+  useEffect(() => {
+    console.log("use effect run");
+    console.log(blogs);
+    console.log(name);
+  }, [name]);
+  //hooks end
+
+  //methods start
   const deleteBlog = (id) => {
     // delete thn save in variable then set blogs
     // let blogsList = blogs.filter((blog) => blog.id !== id);
     // setBlogs(blogsList)
 
     //directly dekete and set blogs
-    setBlogs(blogs.filter((blog) => blog.id !== id))
+    setBlogs(blogs.filter((blog) => blog.id !== id));
   };
+  //methods end
 
   return (
     <div className="home">
@@ -52,6 +65,17 @@ const Home = () => {
         title="Zinnia's Blogs"
         handleDelete={deleteBlog}
       />
+
+      {/* button for useEffect dependency */}
+      <button
+        onClick={() => setName("Name changed")}
+        className="btn btn-outline-danger d-grid gap-2 col-6 mx-auto my-5"
+        type="button"
+      >
+        useEffect Dependency
+      </button>
+      <p>{name}</p>
+
       {/*  arithmetic operators 
                    + - * / %
        */}
