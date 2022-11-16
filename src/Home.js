@@ -28,11 +28,23 @@ const Home = () => {
   //useState for useEffect dependency
   const [name, setName] = useState("Initial Name");
 
+  // Increament a number on click and then change will also dispaly vis useEffect
+  const [count, setCount] = useState(0);
+
   useEffect(() => {
     console.log("use effect run");
     console.log(blogs);
     console.log(name);
   }, [name]);
+
+  useEffect(() => {
+    console.log(count)
+  }, []
+  )
+
+  useEffect(() => {
+    console.log('count: ' + count + ' , setCount: ' + setCount)
+  }, [count])
   //hooks end
 
   //methods start
@@ -44,6 +56,14 @@ const Home = () => {
     //directly dekete and set blogs
     setBlogs(blogs.filter((blog) => blog.id !== id));
   };
+
+  //increment methhod
+  const incrementNum = () => {
+    setCount(count + 1)
+    console.log(setCount);
+    console.log(count)
+  };
+
   //methods end
 
   return (
@@ -75,6 +95,10 @@ const Home = () => {
         useEffect Dependency
       </button>
       <p>{name}</p>
+
+      {/* increment button*/}
+      <p>{count}</p>
+      <button type="button" className="btn btn-danger me-2 p-1 text-decoration-none" onClick={() => incrementNum()}>increment button</button>
 
       {/*  arithmetic operators 
                    + - * / %
