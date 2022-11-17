@@ -3,7 +3,8 @@ import BlogList from "./BlogList";
 
 const Home = () => {
   //hooks start
-  const [blogs, setBlogs] = useState([
+  const [blogs, setBlogs] = useState(
+    [
     {
       id: 1,
       title: "My new Website",
@@ -22,7 +23,8 @@ const Home = () => {
       body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, ",
       author: "Jenny",
     },
-  ]);
+  ]
+  );
   //   console.log(blogs)
 
   //useState for useEffect dependency
