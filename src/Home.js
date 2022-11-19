@@ -34,6 +34,9 @@ const Home = () => {
   // Increament a number on click and then change will also dispaly vis useEffect
   const [count, setCount] = useState(0);
 
+  //Pending / wait / spinner needed when data is loading from server slowly
+  const [isPending, setPending] = useState(true);
+
   useEffect(
     () => {
       // console.log("use effect run");
@@ -43,12 +46,17 @@ const Home = () => {
         .then((res) => {
           // console.log(res);
           let response = res.json();
-          console.log(response);
+          // console.log(response);
           return response;
         })
         .then((data) => {
-          console.log(data);
-          console.log(data[1]);  // array start from 0 index its mean 1 index having 2nd row
+          // console.log(data); //yh sara data hy
+          // console.log(data[1]); // array start from 0 index its mean 1 index having 2nd row
+          setBlogs(data);
+          debugger;
+          setPending(false);
+          debugger;
+          console.log("blogs:", blogs);
         });
       // .catch(err => console.log(err))
       // .finally(rslt => console.log(rslt))
@@ -64,6 +72,7 @@ const Home = () => {
   // useEffect(() => {
   //   console.log("count: " + count + " , setCount: " + setCount);
   // }, [count]);
+  
   //hooks end
 
   //methods start
@@ -94,6 +103,8 @@ const Home = () => {
           <p>{blog.body}</p>
         </div>
       ))} */}
+
+
       {/* <BlogList
         blogs_send={blogs}
         title="Blogs List"
