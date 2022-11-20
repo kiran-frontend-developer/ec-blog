@@ -47,9 +47,16 @@ const Home = () => {
       setTimeout(() => {
 
         // fetching data from server 
-        fetch("http://localhost:8000/blogs") // this full line returning a promise
+        // fetch("http://localhost:8000/blogs") // this full line returning a promise
+        fetch("http://localhost:8000/blogss") // cgange blogs to blogss , to study errors from servre 
           .then((res) => {
-            // console.log(res);
+
+            //if no data return handel error
+            console.log("response from server: ", res)
+            if (!res.ok) {
+              throw Error('Could not fetch data from server')
+            }
+
             let response = res.json();
             // console.log(response);
             return response;
@@ -63,11 +70,15 @@ const Home = () => {
             // debugger;
             console.log("blogs:", blogs);
 
-          });
-        // .catch(err => console.log(err))
+          })
+          //catch block cahing any kind of network err
+          .catch(err => {
+            console.log("server side error: ", err)
+            console.log("server side error message: ", err.message)
+          })
         // .finally(rslt => console.log(rslt))
 
-      }, 6000)
+      }, 1000)
 
       // study: timer with 2 sec / 2000 msec as argument
       // setTimeout(() => console.log('chek timer'), 6000)
