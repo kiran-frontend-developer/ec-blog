@@ -53,13 +53,15 @@ const Home = () => {
           // console.log(data); //yh sara data hy
           // console.log(data[1]); // array start from 0 index its mean 1 index having 2nd row
           setBlogs(data);
-          debugger;
+          //debugger;
           setPending(false);
-          debugger;
+          // debugger;
           console.log("blogs:", blogs);
+
         });
       // .catch(err => console.log(err))
       // .finally(rslt => console.log(rslt))
+
     },
     // [name]
     []
@@ -72,7 +74,7 @@ const Home = () => {
   // useEffect(() => {
   //   console.log("count: " + count + " , setCount: " + setCount);
   // }, [count]);
-  
+
   //hooks end
 
   //methods start
@@ -104,17 +106,17 @@ const Home = () => {
         </div>
       ))} */}
 
-
-      {/* <BlogList
-        blogs_send={blogs}
-        title="Blogs List"
+      {isPending && <div> Loading .......</div>}
+      {blogs && <BlogList blogs_send={blogs} title="Blogs List"
         handleDelete={deleteBlog}
       />
-      <BlogList
-        blogs_send={blogs.filter((blog) => blog.author === "zinnia")}
-        title="Zinnia's Blogs"
-        handleDelete={deleteBlog}
-      /> */}
+      }
+      {blogs &&
+        <BlogList
+          blogs_send={blogs.filter((blog) => blog.author === "zinnia")}
+          title="Zinnia's Blogs"
+          handleDelete={deleteBlog} />
+      }
 
       {/* button for useEffect dependency */}
       {/* <button
