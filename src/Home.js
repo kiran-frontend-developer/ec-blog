@@ -35,32 +35,42 @@ const Home = () => {
   const [count, setCount] = useState(0);
 
   //Pending / wait / spinner needed when data is loading from server slowly
-  const [isPending, setPending] = useState(true);
+  const [isPending, setIsPending] = useState(true);
 
   useEffect(
     () => {
       // console.log("use effect run");
       // console.log(blogs);
       // console.log(name);
-      fetch("http://localhost:8000/blogs") // this full line returning a promise
-        .then((res) => {
-          // console.log(res);
-          let response = res.json();
-          // console.log(response);
-          return response;
-        })
-        .then((data) => {
-          // console.log(data); //yh sara data hy
-          // console.log(data[1]); // array start from 0 index its mean 1 index having 2nd row
-          setBlogs(data);
-          //debugger;
-          setPending(false);
-          // debugger;
-          console.log("blogs:", blogs);
 
-        });
-      // .catch(err => console.log(err))
-      // .finally(rslt => console.log(rslt))
+      //apply timer for 6 sec on fetching data from server
+      setTimeout(() => {
+
+        // fetching data from server 
+        fetch("http://localhost:8000/blogs") // this full line returning a promise
+          .then((res) => {
+            // console.log(res);
+            let response = res.json();
+            // console.log(response);
+            return response;
+          })
+          .then((data) => {
+            // console.log(data); //yh sara data hy
+            // console.log(data[1]); // array start from 0 index its mean 1 index having 2nd row
+            setBlogs(data);
+            //debugger;
+            setIsPending(false);
+            // debugger;
+            console.log("blogs:", blogs);
+
+          });
+        // .catch(err => console.log(err))
+        // .finally(rslt => console.log(rslt))
+
+      }, 6000)
+
+      // study: timer with 2 sec / 2000 msec as argument
+      // setTimeout(() => console.log('chek timer'), 6000)
 
     },
     // [name]
