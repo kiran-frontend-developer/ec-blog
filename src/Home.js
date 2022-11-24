@@ -37,6 +37,9 @@ const Home = () => {
   //Pending / wait / spinner needed when data is loading from server slowly
   const [isPending, setIsPending] = useState(true);
 
+  // saving server side errors and show on browser
+  const [error, setError] = useState(null)
+
   useEffect(
     () => {
       // console.log("use effect run");
@@ -47,11 +50,11 @@ const Home = () => {
       setTimeout(() => {
 
         // fetching data from server 
-        // fetch("http://localhost:8000/blogs") // this full line returning a promise
+        //fetch("http://localhost:8000/blogs") // this full line returning a promise
         fetch("http://localhost:8000/blogss") // cgange blogs to blogss , to study errors from servre 
           .then((res) => {
 
-            //if no data return handel error
+            //if no data return handle error
             console.log("response from server: ", res)
             if (!res.ok) {
               throw Error('Could not fetch data from server')
@@ -60,8 +63,10 @@ const Home = () => {
             let response = res.json();
             // console.log(response);
             return response;
+
           })
           .then((data) => {
+
             // console.log(data); //yh sara data hy
             // console.log(data[1]); // array start from 0 index its mean 1 index having 2nd row
             setBlogs(data);
@@ -75,6 +80,8 @@ const Home = () => {
           .catch(err => {
             console.log("server side error: ", err)
             console.log("server side error message: ", err.message)
+            setIsPending(false)
+            setError(err.message)
           })
         // .finally(rslt => console.log(rslt))
 
@@ -127,7 +134,13 @@ const Home = () => {
         </div>
       ))} */}
 
+      {/* show server side errors */}
+      {error && <div>{error}</div>}
+
+      {/* show timer */}
       {isPending && <div> Loading .......</div>}
+
+      {/* blogs */}
       {blogs && <BlogList blogs_send={blogs} title="Blogs List"
         handleDelete={deleteBlog}
       />
