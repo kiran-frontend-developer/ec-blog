@@ -1,19 +1,25 @@
 import Navbar from './Navbar';
 import Home from './Home';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Create from './Create';
 
 function App() {
   return (
-    <div className="App text-center m-0 border border-danger">
-      <Navbar />
-      <div className="content border border-secondary p-5">
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+    <Router>
+      <div className="App text-center m-0 border border-danger">
+        <Navbar />
+        <div className="content border border-secondary p-5">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/create">
+              <Create />
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
