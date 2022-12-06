@@ -35,6 +35,9 @@ const useFetch = (url) => {
 
   useEffect(
     () => {
+      // Abort Controller
+      const abortController = new AbortController();
+
       // console.log("use effect run");
       // console.log(blogs);
       // console.log(name);
@@ -43,7 +46,9 @@ const useFetch = (url) => {
       setTimeout(() => {
         // fetching data from server
         // fetch("http://localhost:8000/blogs") // this full line returning a promise
-        fetch(url) // custom url
+
+        // Assiciate the abortController with fetch by giving as 2nd argument
+        fetch(url, { signal: abortController.signal }) // custom url
           // fetch("http://localhost:8000/blogss") // cgange blogs to blogss , to study errors from servre
           .then((res) => {
             //if no data return handel error
@@ -74,14 +79,27 @@ const useFetch = (url) => {
           .catch((err) => {
             // console.log("server side error: ", err)
             // console.log("server side error message: ", err.message)
-            setIsPending(false);
-            setError(err.message);
+
+            // if the error type is abort then state should never update
+            if (err.name === "AbortError") {
+              console.log("fetched Aborted");
+            } else {
+              // state still updating here
+              setIsPending(false);
+              setError(err.message);
+            }
           });
         // .finally(rslt => console.log(rslt))
       }, 1000);
 
       // study: timer with 2 sec / 2000 msec as argument
       // setTimeout(() => console.log('chek timer'), 6000)
+
+      //   craete a cleanup function , will cal when time out
+      return () => {
+        // console.log("cleanup");
+        abortController.abort(); // it abort everything associated with it, so useeffect paused now
+      };
     },
     // [name]
     [url]
