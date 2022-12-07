@@ -28,7 +28,7 @@ const BlogDetails = () => {
         // here return some kind of template
         <article>
           <h2>{blog.title}</h2>
-          <p>Wirttern By {blog.author}</p>
+          <p>Wirttern By: {blog.author}</p>
           <div>{blog.body}</div>
         </article>
       )}
