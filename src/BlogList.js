@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 // const BlogList = (props) => {
 const BlogList = ({ blogs_send, title, handleDelete }) => {
@@ -49,7 +50,9 @@ const BlogList = ({ blogs_send, title, handleDelete }) => {
       {/* {access_blogs.map((blog) => ( */}
       {blogs_send.map((blog) => (
         <div className="blog-preview" key={blog.id}>
-          <h2>{blog.title}</h2>
+          <Link to={`/blogs/${blog.id}`}>
+            <h2>{blog.title}</h2>
+          </Link>
           <p>Written by: {blog.author}</p>
           <p>{blog.body}</p>
           <button
