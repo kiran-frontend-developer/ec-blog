@@ -40,10 +40,13 @@ const Create = () => {
       setIsPending(false);
 
       // set how to set back
-      history.go(-1);
+      //   history.go(-1);
 
       //   to go forward set =1
-      history.go(1);
+      //   history.go(1);
+
+      //   to go back to home page
+      history.push("/");
     });
   };
 
