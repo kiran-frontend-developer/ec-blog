@@ -1,4 +1,9 @@
+import { useState } from "react";
+
 const Create = () => {
+  //handle state of input fields
+  const [title, setTitle] = useState(""); //associate with input field
+
   return (
     <div className="create">
       <h2>Add a New Blog</h2>
@@ -7,7 +12,11 @@ const Create = () => {
             the input field , is considered the change of state of that input field. */}
       <form>
         <label>Blog Title:</label>
-        <input type="text" required />
+        <input
+          type="text"
+          required
+          value={title} // associate the title with value here
+        />
         <label>Blog Body:</label>
         <textarea required></textarea>
         <label>Blog Author:</label>
