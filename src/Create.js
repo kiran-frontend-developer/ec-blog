@@ -16,6 +16,16 @@ const Create = () => {
           <option value="zinnia">Zinnia</option>
           <option value="jenny">Jenny</option>
         </select>
+        <button
+          onClick={() => {
+            console.log("add blog is working");
+            alert("add blog");
+          }}
+          className="btn btn-outline-danger d-grid gap-2 col-6 mx-auto"
+          type="button"
+        >
+          Add Blog
+        </button>
       </form>
     </div>
   );
