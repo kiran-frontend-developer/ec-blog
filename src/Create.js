@@ -6,7 +6,7 @@ const Create = () => {
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("lily");
 
-  const [isPending, setIsPending] = useState("false");
+  const [isPending, setIsPending] = useState(false);
 
   //   submit function
   const handleSubmit = (e) => {
@@ -71,17 +71,33 @@ const Create = () => {
           <option value="zinnia">Zinnia</option>
           <option value="jenny">Jenny</option>
         </select>
-        <button
-          //   onClick={() => {
-          //     console.log("add blog is working");
-          //     alert("add blog");
-          //   }}
-          className="btn btn-outline-danger d-grid gap-2 col-6 mx-auto"
-          type="submit"
-        >
-          Add Blog
-        </button>
 
+        {/*  set the button disabled when isPending true , so can't click it*/}
+        {!isPending && (
+          <button
+            //   onClick={() => {
+            //     console.log("add blog is working");
+            //     alert("add blog");
+            //   }}
+            className="btn btn-outline-danger d-grid gap-2 col-6 mx-auto"
+            type="submit"
+          >
+            Add Blog
+          </button>
+        )}
+        {isPending && (
+          <button
+            //   onClick={() => {
+            //     console.log("add blog is working");
+            //     alert("add blog");
+            //   }}
+            className="btn btn-outline-danger d-grid gap-2 col-6 mx-auto"
+            type="submit"
+            disabled
+          >
+            Adding Blog...
+          </button>
+        )}
         {/* to check what have we entered in the input field */}
         {/* <p>Check State of Title: {title}</p>
         <p>Check State of Body: {body}</p>
