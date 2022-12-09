@@ -35,6 +35,12 @@
       "body": "test",
       "author": "jenny",
       "id": 6
+    },
+    {
+      "title": "test redirect",
+      "body": "blog body",
+      "author": "jenny",
+      "id": 7
     }
   ]
 }

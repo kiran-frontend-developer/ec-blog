@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
   //handle state of input fields
@@ -7,6 +8,9 @@ const Create = () => {
   const [author, setAuthor] = useState("lily");
 
   const [isPending, setIsPending] = useState(false);
+
+  //   redirect to Home page
+  const history = useHistory();
 
   //   submit function
   const handleSubmit = (e) => {
@@ -34,6 +38,9 @@ const Create = () => {
     }).then(() => {
       console.log("new blod added");
       setIsPending(false);
+
+      // set how to set back
+      history.go(-1);
     });
   };
 
