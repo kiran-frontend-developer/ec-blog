@@ -6,6 +6,8 @@ const Create = () => {
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("lily");
 
+  const [isPending, setIsPending] = useState("false");
+
   //   submit function
   const handleSubmit = (e) => {
     // console.log("submit event");
@@ -13,6 +15,8 @@ const Create = () => {
 
     // now need to create a blog object. it will hold all the input data from input fields.
     const blog = { title, body, author };
+
+    setIsPending(true);
 
     // check this obj in console
     // console.log(blog);
@@ -29,6 +33,7 @@ const Create = () => {
       //   no need to add id, as json server add it automatically
     }).then(() => {
       console.log("new blod added");
+      setIsPending(false);
     });
   };
 
