@@ -39,6 +39,9 @@ const Create = () => {
         >
           Add Blog
         </button>
+
+        {/* to check what have we entered in the input field */}
+        <p>Check State of Title: {title}</p>
       </form>
     </div>
   );
