@@ -55,7 +55,7 @@ const BlogList = ({ blogs_send, title, handleDelete }) => {
           </Link>
           <p>Written by: {blog.author}</p>
           <p>{blog.body}</p>
-          <button
+          {/* <button
             onClick={() =>
               // {
               // console.log("id: " + blog.id);
@@ -68,7 +68,7 @@ const BlogList = ({ blogs_send, title, handleDelete }) => {
             type="button"
           >
             Delete Blog
-          </button>
+          </button> */}
         </div>
       ))}
     </div>

@@ -14,6 +14,15 @@ const BlogDetails = () => {
   } = useFetch(`http://localhost:8000/blogs/${id}`);
   console.log(blog);
 
+  // delete blog function
+  const handleDelete = () => {
+    fetch(`http://localhost:8000/blogs/${blog.id}`, {
+      method: "DELETE",
+    }).then(() => {
+      console.log("blog deleted");
+    });
+  };
+
   return (
     <div className="blog-details">
       {/* <h2>Blog Details {id}</h2> */}
@@ -30,6 +39,15 @@ const BlogDetails = () => {
           <h2>{blog.title}</h2>
           <p>Wirttern By: {blog.author}</p>
           <div>{blog.body}</div>
+
+          {/*  delete the blog  */}
+          <button
+            onClick={handleDelete}
+            className="btn btn-outline-danger d-grid gap-2 col-6 mx-auto"
+            // type="button"
+          >
+            Delete Blog
+          </button>
         </article>
       )}
     </div>
