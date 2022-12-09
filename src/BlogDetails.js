@@ -1,10 +1,13 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 
 const BlogDetails = () => {
   // to grabe the right blog id we use hook useParams
   const { id } = useParams(); //destructure it, for required route parameter, use id there
+
+  //  go back to home page when click on delete button
+  const history = useHistory();
 
   // to show data of the selected blog here , useFetch is used here
   const {
@@ -19,6 +22,7 @@ const BlogDetails = () => {
     fetch(`http://localhost:8000/blogs/${blog.id}`, {
       method: "DELETE",
     }).then(() => {
+      history.push("/");
       console.log("blog deleted");
     });
   };

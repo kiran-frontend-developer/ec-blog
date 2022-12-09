@@ -19,12 +19,6 @@
       "author": "Jenny"
     },
     {
-      "title": "title",
-      "body": "check",
-      "author": "lily",
-      "id": 4
-    },
-    {
       "title": "new blog",
       "body": "body of blog",
       "author": "zinnia",
@@ -35,12 +29,6 @@
       "body": "test",
       "author": "jenny",
       "id": 6
-    },
-    {
-      "title": "test redirect",
-      "body": "blog body",
-      "author": "jenny",
-      "id": 7
     },
     {
       "title": "new check",
