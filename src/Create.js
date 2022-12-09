@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const Create = () => {
   //handle state of input fields
-  const [title, setTitle] = useState(""); //associate with input field
+  const [title, setTitle] = useState("check input"); //associate with input field
 
   return (
     <div className="create">
@@ -15,7 +15,7 @@ const Create = () => {
         <input
           type="text"
           required
-          value={title} // associate the title with value here
+          value={title} // associate the title with value here, empty string not showing anything, change of text wil show
         />
         <label>Blog Body:</label>
         <textarea required></textarea>
