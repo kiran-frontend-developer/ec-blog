@@ -3,6 +3,8 @@ import { useState } from "react";
 const Create = () => {
   //handle state of input fields
   const [title, setTitle] = useState(""); //associate with input field
+  const [body, setBody] = useState("");
+  const [author, setAuthor] = useState("lily");
 
   return (
     <div className="create">
@@ -22,9 +24,17 @@ const Create = () => {
           onChange={(e) => setTitle(e.target.value)} //access the chaneg in event as obect as e, the event target this input field and get its value. it is 2-way binding
         />
         <label>Blog Body:</label>
-        <textarea required></textarea>
+        <textarea
+          required
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        ></textarea>
         <label>Blog Author:</label>
-        <select>
+        <select
+          required
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        >
           <option value="lily">Lily</option>
           <option value="zinnia">Zinnia</option>
           <option value="jenny">Jenny</option>
@@ -42,6 +52,8 @@ const Create = () => {
 
         {/* to check what have we entered in the input field */}
         <p>Check State of Title: {title}</p>
+        <p>Check State of Body: {body}</p>
+        <p>Check State of Author: {author}</p>
       </form>
     </div>
   );
