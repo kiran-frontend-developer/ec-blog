@@ -10,6 +10,12 @@ const Create = () => {
   const handleSubmit = (e) => {
     // console.log("submit event");
     e.preventDefault(); //it prevent the page to refresh.
+
+    // now need to create a blog object. it will hold all the input data from input fields.
+    const blog = { title, body, author };
+    //check this obj in console
+    console.log(blog);
+    console.log(title, body, author);
   };
 
   return (
@@ -52,7 +58,7 @@ const Create = () => {
           //     alert("add blog");
           //   }}
           className="btn btn-outline-danger d-grid gap-2 col-6 mx-auto"
-          type="button"
+          type="submit"
         >
           Add Blog
         </button>
