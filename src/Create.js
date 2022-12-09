@@ -20,12 +20,15 @@ const Create = () => {
 
     // POST request, from this data to json file
     // create a fetch request
+    //this is asynchronous method , and it returns a promise. so w are creating afunction which file when post request completed
     fetch("http://localhost:8000/blogs", {
       // 2nd aerument is used to tackle the data.
       method: "POST", //type of request
       headers: { "Content-Type": "application/json" }, //this is for , content is being sent
       body: JSON.stringify(blog), // actual data we are sending with request, but we convert it first into json data
       //   no need to add id, as json server add it automatically
+    }).then(() => {
+      console.log("new blod added");
     });
   };
 
