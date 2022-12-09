@@ -6,13 +6,19 @@ const Create = () => {
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("lily");
 
+  //   submit function
+  const handleSubmit = (e) => {
+    console.log("submit event");
+  };
+
   return (
     <div className="create">
       <h2>Add a New Blog</h2>
 
       {/* Adding a new form. using of control-inputs. which deals with inpit fields. Whatever we enter into 
             the input field , is considered the change of state of that input field. */}
-      <form>
+      <form onSubmit={handleSubmit}>
+        {/* use submit event to submit form an pass a function created above */}
         <label>Blog Title:</label>
         <input
           type="text"
@@ -40,10 +46,10 @@ const Create = () => {
           <option value="jenny">Jenny</option>
         </select>
         <button
-          onClick={() => {
-            console.log("add blog is working");
-            alert("add blog");
-          }}
+          //   onClick={() => {
+          //     console.log("add blog is working");
+          //     alert("add blog");
+          //   }}
           className="btn btn-outline-danger d-grid gap-2 col-6 mx-auto"
           type="button"
         >
@@ -51,9 +57,9 @@ const Create = () => {
         </button>
 
         {/* to check what have we entered in the input field */}
-        <p>Check State of Title: {title}</p>
+        {/* <p>Check State of Title: {title}</p>
         <p>Check State of Body: {body}</p>
-        <p>Check State of Author: {author}</p>
+        <p>Check State of Author: {author}</p> */}
       </form>
     </div>
   );
