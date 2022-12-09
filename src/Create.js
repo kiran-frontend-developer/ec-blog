@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const Create = () => {
   //handle state of input fields
-  const [title, setTitle] = useState("check input"); //associate with input field
+  const [title, setTitle] = useState(); //associate with input field
 
   return (
     <div className="create">
@@ -15,7 +15,11 @@ const Create = () => {
         <input
           type="text"
           required
-          value={title} // associate the title with value here, empty string not showing anything, change of text wil show
+          value={title} // associate the title with value here, empty string not showing anything,
+          // change of text in useState will show text init and never change, not editable
+
+          //apply onchange event to get the change state in input and set it to the setTitle anonymous function of useState
+          onChange={(e) => setTitle(e.target.value)} //access the chaneg in event as obect as e, the event target this input field and get its value
         />
         <label>Blog Body:</label>
         <textarea required></textarea>
