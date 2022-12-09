@@ -8,7 +8,8 @@ const Create = () => {
 
   //   submit function
   const handleSubmit = (e) => {
-    console.log("submit event");
+    // console.log("submit event");
+    e.preventDefault(); //it prevent the page to refresh.
   };
 
   return (
