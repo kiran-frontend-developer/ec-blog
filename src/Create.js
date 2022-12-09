@@ -13,9 +13,20 @@ const Create = () => {
 
     // now need to create a blog object. it will hold all the input data from input fields.
     const blog = { title, body, author };
-    //check this obj in console
-    console.log(blog);
-    console.log(title, body, author);
+
+    // check this obj in console
+    // console.log(blog);
+    // console.log(title, body, author);
+
+    // POST request, from this data to json file
+    // create a fetch request
+    fetch("http://localhost:8000/blogs", {
+      // 2nd aerument is used to tackle the data.
+      method: "POST", //type of request
+      headers: { "Content-Type": "application/json" }, //this is for , content is being sent
+      body: JSON.stringify(blog), // actual data we are sending with request, but we convert it first into json data
+      //   no need to add id, as json server add it automatically
+    });
   };
 
   return (
