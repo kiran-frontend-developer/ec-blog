@@ -41,6 +41,9 @@ const Create = () => {
 
       // set how to set back
       history.go(-1);
+
+      //   to go forward set =1
+      history.go(1);
     });
   };
 
