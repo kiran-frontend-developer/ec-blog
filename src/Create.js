@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const Create = () => {
   //handle state of input fields
-  const [title, setTitle] = useState(); //associate with input field
+  const [title, setTitle] = useState(""); //associate with input field
 
   return (
     <div className="create">
@@ -19,7 +19,7 @@ const Create = () => {
           // change of text in useState will show text init and never change, not editable
 
           //apply onchange event to get the change state in input and set it to the setTitle anonymous function of useState
-          onChange={(e) => setTitle(e.target.value)} //access the chaneg in event as obect as e, the event target this input field and get its value
+          onChange={(e) => setTitle(e.target.value)} //access the chaneg in event as obect as e, the event target this input field and get its value. it is 2-way binding
         />
         <label>Blog Body:</label>
         <textarea required></textarea>
